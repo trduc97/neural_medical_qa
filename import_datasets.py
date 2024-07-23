@@ -16,8 +16,11 @@ def load_bioasq_pubmedqa(kaggle_path = '/kaggle/input/bioasq-training-12b/traini
             'documents':question['documents']
         }
         for question in bioasq_data['questions'] if question['type'] == 'yesno']
-    # Convert the list of yes/no questions to a Hugging Face Dataset
-    bioasq_dataset=Dataset.from_list(bioasq_yesno)
+    # Convert the list of yes/no questions to a Pandas DataFrame
+    bioasq_df = pd.DataFrame(bioasq_yesno)
+
+    # Convert the DataFrame to a Hugging Face Dataset
+    bioasq_dataset = Dataset.from_pandas(bioasq_df)
     # Create a DatasetDict with the 'train' split
     bioasq_data=DatasetDict({'train': bioasq_dataset})
 
