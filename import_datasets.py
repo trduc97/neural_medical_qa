@@ -5,7 +5,7 @@ import pandas as pd
 
 def load_bioasq_pubmedqa(bioasq_kaggle_path = '/kaggle/input/bioasq-training-12b/training12b_new.json', pubmed_kaggle_path='/kaggle/input/pubmed-qa/pubmed_qa_pga_labeled.parquet'):
     # Load the JSON file
-    with open(kaggle_path,'r') as f:
+    with open(bioasq_kaggle_path,'r') as f:
         bioasq_data=json.load(f)
     # Extract yes/no questions directly
     bioasq_yesno = [{
