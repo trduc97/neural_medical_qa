@@ -3,7 +3,7 @@ from datasets import Dataset, DatasetDict, load_dataset
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-def load_bioasq_pubmedqa(kaggle_path = '/kaggle/input/bioasq-training-12b/training12b_new.json'):
+def load_bioasq_pubmedqa(bioasq_kaggle_path = '/kaggle/input/bioasq-training-12b/training12b_new.json', pubmed_kaggle_path='/kaggle/input/pubmed-qa/pubmed_qa_pga_labeled.parquet'):
     # Load the JSON file
     with open(kaggle_path,'r') as f:
         bioasq_data=json.load(f)
@@ -24,9 +24,14 @@ def load_bioasq_pubmedqa(kaggle_path = '/kaggle/input/bioasq-training-12b/traini
     # Create a DatasetDict with the 'train' split
     bioasq_data=DatasetDict({'train': bioasq_dataset})
 
-
+    # Read from parquet and translate to a dataset object
+    pubmed_df=pd.read_parquet(pubmed_kaggle_path)
+    dataset=Dataset.from_pandas(pubmed_df)
+    #Setting into similar format as from huggingface
+    dataset_dict = DatasetDict({'train': dataset})
+    
     # Load the pubmedqa dataset
-    pubmedqa_data=load_dataset("pubmed_qa","pqa_labeled")
+    #pubmedqa_data=load_dataset("pubmed_qa","pqa_labeled") # unstable connection
 
     #Encoding decisions 
     def decision_encode(question):
