@@ -28,7 +28,7 @@ def load_bioasq_pubmedqa(bioasq_kaggle_path = '/kaggle/input/bioasq-training-12b
     pubmed_df=pd.read_parquet(pubmed_kaggle_path)
     dataset=Dataset.from_pandas(pubmed_df)
     #Setting into similar format as from huggingface
-    dataset_dict = DatasetDict({'train': dataset})
+    pubmedqa_data = DatasetDict({'train': dataset})
     
     # Load the pubmedqa dataset
     #pubmedqa_data=load_dataset("pubmed_qa","pqa_labeled") # unstable connection
