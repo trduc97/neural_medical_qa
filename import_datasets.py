@@ -26,7 +26,7 @@ def load_bioasq_pubmedqa(bioasq_kaggle_path = '/kaggle/input/bioasq-training-12b
 
     # Read from parquet and translate to a dataset object
     pubmed_df=pd.read_parquet(pubmed_kaggle_path)
-    dataset=Dataset.from_pandas(pubmed_df)
+    dataset=Dataset.from_pandas(pubmed_df,preserve_index=False)
     #Setting into similar format as from huggingface
     pubmedqa_data = DatasetDict({'train': dataset})
     
@@ -64,8 +64,8 @@ def train_val_test_split(datasetdict,train_size=0.75, val_test_ratio=0.6,strat_c
         stratify=val_test_df[stratify_col],
         random_state=42)
     # Convert DataFrames back to Dataset
-    train_dataset = Dataset.from_pandas(train_df)
-    val_dataset = Dataset.from_pandas(val_df)
-    test_dataset = Dataset.from_pandas(test_df)
+    train_dataset = Dataset.from_pandas(train_df, preserve_index=False)
+    val_dataset = Dataset.from_pandas(val_df, preserve_index=False)
+    test_dataset = Dataset.from_pandas(test_df, preserve_index=False)
 
     return train_dataset, val_dataset, test_dataset
