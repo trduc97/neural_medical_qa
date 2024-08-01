@@ -9,7 +9,7 @@ Currently, the general approach for RAG is applying vector similarity calculatio
 
 So this model is expected to act as the 3rd layer for the QA process, validating the top result in a pair of question-answer to see if the answer actually satisfied the question. 
 
-We will be examining a few approaches to enhance the result for the question-answering task \\
+We will be examining a few approaches to enhance the result for the question-answering task  
 Model 1: BERT-base  
 Model 2: GPTv2  
 Model 3: LinkBERT-base  
