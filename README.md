@@ -10,10 +10,10 @@ Currently, the general approach for RAG is applying vector similarity calculatio
 So this model is expected to act as the 3rd layer for the QA process, validating the top result in a pair of question-answer to see if the answer actually satisfied the question. 
 
 We will be examining a few approaches to enhance the result for the question-answering task 
-Model 1: BERT-base  
-Model 2: GPTv2
-Model 3: LinkBERT-base
-Model 4: BIOMED-BERT-base
-Model 5: BioLinkBERT
+\n Model 1: BERT-base  
+\n Model 2: GPTv2
+\n Model 3: LinkBERT-base
+\n Model 4: BIOMED-BERT-base
+\n Model 5: BioLinkBERT
 
 With the 4 models, we use 2 datasets BioASQ and PubMedQA for the fine-tuning process for the task, and we will also be experimenting using a part of the PubMedQA-artificial dataset to improve the resulting model
