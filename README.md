@@ -12,8 +12,9 @@ So this model is expected to act as the 3rd layer for the QA process, validating
 We will be examining a few approaches to enhance the result for the question-answering task  
 Model 1: BERT-base  
 Model 2: GPTv2  
-Model 3: LinkBERT-base  
-Model 4: BIOMED-BERT-base  
-Model 5: BioLinkBERT  
+Model 3: ColBERT
+Model 4: LinkBERT-base  
+Model 5: BIOMEDNLP-base  
+Model 6: BioLinkBERT  
 
 With the 4 models, we use 2 datasets BioASQ and PubMedQA for the fine-tuning process for the task, and we will also be experimenting using a part of the PubMedQA-artificial dataset to improve the resulting model
