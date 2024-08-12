@@ -12,7 +12,7 @@ So this model is expected to act as the 3rd layer for the QA process, validating
 We will be examining a few approaches to enhance the result for the question-answering task  
 Model 1: BERT-base  
 Model 2: GPTv2  
-Model 3: ColBERT
+Model 3: ColBERT  
 Model 4: LinkBERT-base  
 Model 5: BIOMEDNLP-base  
 Model 6: BioLinkBERT  
