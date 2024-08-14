@@ -1,3 +1,8 @@
+import torch
+from transformers import BertModel
+import torch.nn as nn
+import torch.optim as optim
+
 class QAModel(nn.Module):
     def __init__(self, model, classes=3, dropout_prob=0.5):
         super(QAModel, self).__init__()
