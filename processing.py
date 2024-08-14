@@ -62,3 +62,13 @@ def pubmed_train_test_split(datasetdict,train_size=0.70,
     test_dataset = Dataset.from_pandas(test_df, preserve_index=False)
 
     return train_dataset, test_dataset
+
+
+def result_convert(result_dict):
+    df = pd.DataFrame({
+        'Model': result_dict.keys(),
+        'Accuracy': [result_dict[model]['test']['accuracy'] for model in result_dict],
+        'Precision': [result_dict[model]['test']['precision'] for model in result_dict],
+        'Recall': [result_dict[model]['test']['recall'] for model in result_dict],
+        'F1 Score': [result_dict[model]['test']['f1'] for model in result_dict]})
+    return df
