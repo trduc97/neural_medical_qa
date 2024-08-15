@@ -180,7 +180,7 @@ class Trainandtest:
         preds_flat = np.argmax(preds, axis=1).flatten()
         labels_flat = labels.flatten()
         return f1_score(labels_flat, preds_flat, average='weighted')
-    # Evaluating the results, including all metric acc/recall/precision/f1 score
+    # Evaluating the results during training process, including all metric acc/recall/precision/f1 score
     def evaluate(self, dataloader):
         self.model.eval()
         total_loss = 0
@@ -206,11 +206,12 @@ class Trainandtest:
     
         return accuracy, precision, recall, f1
         
-
+    # Evaluate the current trained model or loaded trained model and save the final result into the result dictionary
     def val(self, load_model_path=None):
+       # in case evaluating an external trained model
         if load_model_path:
             self.load_model(load_model_path)
-                
+    
         test_accuracy, test_precision, test_recall, test_f1= self.evaluate(self.test_loader)
         print(f"Test - Accuracy: {test_accuracy}, Precision: {test_precision}, Recall: {test_recall}, F1-Score: {test_f1}")
     
@@ -220,5 +221,5 @@ class Trainandtest:
                 'precision': test_precision,
                 'recall': test_recall,
                 'f1': test_f1
+                }
             }
-        }
