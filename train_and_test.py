@@ -8,6 +8,8 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, f1_score
 import gc
+import time
+
 
 def set_seed(seed):
     random.seed(seed)
@@ -100,6 +102,7 @@ class Trainandtest:
             model_name = model_name[0]        
         self.model.train()
         for epoch in range(epochs):
+            start_time = time.time()
             total_loss = 0
             all_preds = []
             all_labels = []
@@ -129,10 +132,14 @@ class Trainandtest:
             all_preds = np.concatenate(all_preds, axis=0)
             all_labels = np.concatenate(all_labels, axis=0)
             avg_f1_score = self.calculate_f1_score(all_preds, all_labels)
-        
-            print(f"Epoch {epoch+1}, Loss: {avg_loss}, F1 Score: {avg_f1_score}")
+            
+            end_time = time.time()
+            epoch_duration = end_time - start_time
+            
+            print(f"Epoch {epoch+1}, Loss: {avg_loss}, F1 Score: {avg_f1_score}, Time: {epoch_duration:.2f} seconds")
         
         self.save_model(model_name)
+
 
     def save_model(self, model_name):
         os.makedirs('/kaggle/working/models', exist_ok=True)
