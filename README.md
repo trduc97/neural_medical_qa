@@ -12,5 +12,6 @@ Model 5: BioLinkBERT
 With the 5 models, we use 2 datasets BioASQ and PubMedQA for the fine-tuning process, with focus on the PubMedQA as it was designed to require inference to decide the the answer instead of having a direct answer given, and we will also be experimenting using a part of the PubMedQA-artificial dataset to improve the resulting model  
 
 The 2 main notebooks related to this project is also currently available on kaggle   
-https://www.kaggle.com/code/trungcnguyn/diss-biomedqa-context  
-https://www.kaggle.com/code/trungcnguyn/diss-biomedqa-nocontext  
+(1) https://www.kaggle.com/code/trungcnguyn/diss-biomedqa-nocontext  
+ 
+(2) https://www.kaggle.com/code/trungcnguyn/diss-biomedqa-context    
